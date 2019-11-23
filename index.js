@@ -24,7 +24,14 @@ var promises = Promise.all(config.domains.map((domain) => {
         var hours = Math.floor(duration.asHours());
 
         // Only add the one that match hours or days
-        if (process.env.DEBUG || config.alert.hours.includes(hours) || config.alert.days.includes(days)) {
+        if (process.env.DEBUG || config.alert.hours.includes(hours)) {
+          // Match hours
+          return {
+            domain: domain,
+            days: days,
+            hours: hours
+          };
+        } else if (config.alert.days.includes(days) && ((days * 24) == hours)) {
           // Match hours
           return {
             domain: domain,
@@ -32,6 +39,7 @@ var promises = Promise.all(config.domains.map((domain) => {
             hours: hours
           };
         }
+
         return undefined;
 	});
 }));
