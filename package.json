@@ -1,0 +1,16 @@
+{
+  "name": "Docker-Certificate-Checker",
+  "version": "1.0.0",
+  "description": "This tool checks the validation of a certificate for a domain and sends an email, when it expires soon.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dennis Boldt",
+  "license": "ISC",
+  "dependencies": {
+    "get-ssl-certificate": "^2.3.3",
+    "moment": "^2.24.0",
+    "nodemailer": "^6.3.1"
+  }
+}
