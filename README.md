@@ -10,7 +10,7 @@ It is written in **Node.js**.
 ## Run
 
 ```bash
-docker run --rm -e DEBUG=1 boldt/certchecker:1.0.0
+docker run --rm -e DEBUG=1 boldt/certchecker
 ```
 
 This container contains the following `config.js`:
@@ -49,7 +49,7 @@ twitter.com expires in 3121 hours / 130 days
 The container can be configured with a JavaScript-object.
 
 ```bash
-docker run --rm -e DEBUG=1 -v /path/to/config.js:/app/config.js boldt/certchecker:1.0.0
+docker run --rm -e DEBUG=1 -v /path/to/config.js:/app/config.js boldt/certchecker
 ```
 
 The following provides an exhaustive example:
@@ -90,12 +90,5 @@ module.exports = Config;
 Run the docker command hourly:
 
 ```
-0 * * * * docker run --rm -e -v /path/to/config.js:/app/config.js DEBUG=1 boldt/certchecker:1.0.0
-```
-
-# Build and push
-
-```bash
-docker build --no-cache -t boldt/certchecker:1.0.0 .
-docker push boldt/certchecker:1.0.0
+0 * * * * docker run --rm -e -v /path/to/config.js:/app/config.js DEBUG=1 boldt/certchecker
 ```
